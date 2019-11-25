@@ -1,0 +1,24 @@
+.mask {
+  position: relative;
+  padding: 1px;
+}
+
+.mask > * {
+  display: block;
+  width: 100%;
+}
+
+.mask img {
+  display: block;
+  width: 100%;
+}
+
+.mask > svg {
+  fill: $c-bg;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}

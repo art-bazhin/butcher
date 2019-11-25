@@ -1,0 +1,10 @@
+include ../mask/mask
+include ../../mixins/picture
+
+mixin product
+  div.container.product: div.row
+    div.product__img-container
+      +mask
+        +picture(config.productsImgFolder + photo, title)
+
+    div.product__description-container !{ content }

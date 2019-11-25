@@ -14,6 +14,8 @@ const autoprefixer = require('autoprefixer');
 const precss = require('precss');
 const cssnano = require('cssnano');
 
+const resize = require('gulp-image-resize');
+
 const SRC = './src/_includes/';
 const IMG = './src/img/';
 const DIST = './dist/';
@@ -71,11 +73,37 @@ const assets = function() {
     }));
 }
 
-const build = series(clean, parallel(css, js, assets));
-const buildDev = series(clean, parallel(css, jsDev, assets));
+const productsImg1x = function() {
+  return src(IMG + 'products/**/*')
+    .pipe(resize({
+      width : 558,
+      height : 558,
+      quality: 0.7,
+      format: 'jpg'
+    }))
+    .pipe(dest(DIST + 'img/products/'));
+}
+
+const productsImg2x = function() {
+  return src(IMG + 'products/**/*')
+    .pipe(resize({
+      width : 1116,
+      height : 1116,
+      quality: 0.6,
+      format: 'jpg'
+    }))
+    .pipe(rename(function (path) { path.basename += "@2x"; }))
+    .pipe(dest(DIST + 'img/products/'));
+}
+
+const productsImg = parallel(productsImg1x, productsImg2x);
+
+const build = series(clean, parallel(css, js, assets, productsImg));
+const buildDev = series(clean, parallel(css, jsDev, assets, productsImg));
 
 const dev = function() {
   buildDev();
+  watch([IMG + 'products/**/*'], productsImg);
   watch([SRC + 'assets/**/*'], assets);
   watch([SRC + '**/*.js'], jsDev);
   watch([SRC + '**/*.pcss', SRC + '**/*.css'], css);
