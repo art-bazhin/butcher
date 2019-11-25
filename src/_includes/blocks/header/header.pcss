@@ -1,0 +1,159 @@
+.header {
+  display: block;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  &--open {
+    background: $c-bg--secondary;
+
+    .header__button--burger {
+      &:before {
+        height: 0;
+        border-bottom: none;
+        top: 16px;
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        top: 16px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    .header__menu-container {
+      display: block;
+    }
+  }
+
+  @media(--md) {
+    padding-top: 24px;
+    background: none;
+  }
+}
+
+.header__menu-container {
+  display: none;
+
+  @media(--md) {
+    display: block;
+  }
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & > * {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
+
+.header__logo-container {
+  text-align: center;
+}
+
+.header__burger-container {
+  display: flex;
+}
+
+.header__phone-container {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media (--lg) {
+    display: block;
+  }
+}
+
+.header__phone-description {
+  display: none;
+  font-size: 12px;
+
+  @media (--lg) {
+    display: block;
+  }
+}
+
+.header__button {
+  display: inline-block;
+  border: 1px solid $c-font;
+  width: 36px;
+  height: 36px;
+  position: relative;
+
+  span {
+    display: none;
+    font-size: 24px;
+    font-weight: 400;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @media (--lg) {
+      display: inline;
+    }
+  }
+
+  &--burger {
+    @media (--md) {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 3px;
+      border-top: 2px solid $c-font;
+      border-bottom: 2px solid $c-font;
+      position: absolute;
+      left: 6px;
+      top: 11px;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 0;
+      border-top: 2px solid $c-font;
+      position: absolute;
+      left: 6px;
+      top: 21px;
+    }
+  }
+
+  &--phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (--lg) {
+      height: auto;
+      width: auto;
+      border: none;
+      display: inline-block;
+    }
+  }
+}
+
+.header__phone-icon {
+  width: 16px;
+  height: 16px;
+
+  @media (--lg) {
+    display: none;
+  }
+}
+
+.header__logo-link {
+  display: block;
+  font-size: 0;
+}

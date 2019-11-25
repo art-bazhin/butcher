@@ -1,0 +1,59 @@
+.hero {
+  height: 500px;
+  background-image: url('/assets/img/hero.jpg');
+  background-position: -360px bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: $c-bg--secondary;
+  padding-top: $l-header-height-mobile;
+
+  @media (--sm) {
+    background-position: center bottom;
+  }
+
+  @media (--md) {
+    height: 800px;
+    background-size: auto 100%;
+    padding-top: $l-header-height-desktop;
+
+    @media (--retina) {
+      background-image: url('/assets/img/hero@2x.jpg');
+    }
+  }
+}
+
+.hero__text {
+  text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+
+  h1, h2 {
+    margin-top: 24px;
+
+    @media (--sm) {
+      margin-top: 32px;
+    }
+
+    @media (--md) {
+      margin-top: 60px;
+    }
+  }
+
+  p {
+    max-width: 160px;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+
+    @media (--sm) {
+      max-width: initial;
+    }
+
+    @media (--lg) {
+      font-size: 20px;
+      text-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  @include col();
+
+  @media (--sm) {
+    @include col-width(7/12);
+  }
+}

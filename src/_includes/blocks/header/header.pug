@@ -1,0 +1,21 @@
+include ../logo/logo
+include ../menu/menu
+include ../../svg/phone
+
+mixin header(isHero)
+  header(style=(isHero ? 'position: absolute' : ''))#header.header
+    div.container.header__container
+      div.header__burger-container: button(type="button")#burger.header__button.header__button--burger
+
+      div.header__logo-container
+        a(href="/").header__logo-link: +logo
+
+      div.header__phone-container
+        a(type="button" href=("tel:" + site.phone)).header__button.header__button--phone
+          +phone.header__phone-icon
+          span.header__phone-text #{ functions.phone(site.phone).formatNational() }
+        p.header__phone-description #{ site.phoneDescription }
+
+    div.header__menu-container: +menu
+
+  h1.visually-hidden #{ title || site.title }

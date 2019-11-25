@@ -1,0 +1,34 @@
+{
+  "title": "Рецепты мясника",
+
+  "phone": "+78001234567",
+  "phoneDescription": "Каждый день с 8:00 до 23:00",
+
+  "vk": "https://vk.com/",
+  "instagram": "https://instagram.com/",
+
+  "logo": "/assets/img/butcher-logo.png",
+
+  "menu": [
+    {
+      "text": "Главная",
+      "href": "/"
+    },
+    {
+      "text": "О нас",
+      "href": "/about"
+    },
+    {
+      "text": "Продукция",
+      "href": "/products"
+    },
+    {
+      "text": "Партнерам",
+      "href": "/partners"
+    },
+    {
+      "text": "Контакты",
+      "href": "/contacts"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+.menu {
+  margin-top: 12px;
+
+  @media(--md) {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid $c-font;
+    border-bottom: 2px solid $c-font;
+  }
+}
+
+.menu__item {
+  display: block;
+  padding: 12px;
+  text-align: center;
+  flex-grow: 1;
+  flex-basis: 0;
+  transition: background-color $t-duration, color $t-duration;
+  
+  @media(--md) {
+    border-left: 1px solid $c-font;
+    border-right: 1px solid $c-font;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:hover {
+      background: $c-font;
+      color: $c-bg;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+mixin menu
+  div.container
+    nav.menu
+      each item in site.menu
+        a(href=item.href).menu__item #{ item.text }

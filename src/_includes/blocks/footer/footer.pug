@@ -1,0 +1,24 @@
+include ../../svg/vk
+include ../../svg/instagram
+
+mixin footer
+  footer.footer
+    div.container: div.row
+      div.footer__col.footer__col--left: +logo
+
+      div.footer__col.footer__col--center
+        h3.footer__subtitle Карта сайта
+
+        each item in site.menu
+          a(href=item.href).footer__menu-item #{ item.text }
+
+      div.footer__col.footer__col--right
+        div
+          h3.footer__subtitle.footer__subtitle--social Присоединяйтесь
+          div.footer__social-links
+            a(href=site.vk target="_blank").footer__social-link.footer__social-link--vk
+              span.visually-hidden VK
+              +vk
+            a(href=site.instagram target="_blank").footer__social-link.footer__social-link--instagram
+              span.visually-hidden Instagram
+              +instagram
