@@ -1,4 +1,4 @@
-@mixin add-heading-margin() {
+@mixin heading-margin() {
   margin-top: 32px;
 
   @media(--md) {
@@ -10,12 +10,17 @@
   }
 }
 
-body {
+@mixin base-font() {
   font-family: $t-font;
   font-weight: 200;
   font-size: 16px;
   line-height: 1.35;
-  font-style: normal; 
+  font-style: normal;
+  letter-spacing: 0px;
+}
+
+body {
+  @include base-font;
 }
 
 p + p {
@@ -31,6 +36,10 @@ h1, h2 {
   text-transform: uppercase;
 
   @media(--md) {
+    font-size: 40px;
+  }
+
+  @media(--lg) {
     font-size: 48px;
   }
 
@@ -38,7 +47,7 @@ h1, h2 {
     margin-bottom: 32px;
   }
 
-  @include add-heading-margin();
+  @include heading-margin();
 }
 
 h3, h4 {
@@ -60,5 +69,5 @@ a {
 }
 
 .h-margin {
-  @include add-heading-margin();
+  @include heading-margin();
 }

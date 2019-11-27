@@ -1,11 +1,11 @@
 ---
 layout: products.pug
 
-title: Все товары
-description: Все товары
+title: Деликатесы
+description: Деликатесы
 
-category: products
-order: 1
+category: delicacies
+order: 3
 
 hero: |
   ## Наша <br> продукция

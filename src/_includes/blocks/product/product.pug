@@ -4,7 +4,8 @@ mixin product
       +mask
         +picture(config.productsImgFolder + photo, title)
 
-    div.product__description-container 
+    div.product__description-container
+      h1 !{ functions.formatTitle(title) }
       div.product__description !{ content }
       div.product__price-block
         p.product__price #{ functions.formatNumber(price) }-

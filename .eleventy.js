@@ -1,4 +1,22 @@
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
+const translit = require('cyrillic-to-translit-js');
+
+const SPACE = '-';
+
+let processed = false;
+
+function preprocessItems(collection) {
+  if (processed) return;
+
+  collection.items.forEach(item => {
+    item.outputPath = translit().transform(item.outputPath, SPACE);
+    item.url = translit().transform(item.url, SPACE);
+    item.fileSlug = translit().transform(item.fileSlug, SPACE);
+    item.filePathStem = translit().transform(item.filePathStem, SPACE);
+  });
+
+  processed = true;
+}
 
 module.exports = function(eleventyConfig) {
   const cacheBusterOptions = {
@@ -7,12 +25,16 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPlugin(cacheBuster(cacheBusterOptions));
 
-  eleventyConfig.addCollection('products', function(collection) {
-    return collection.getAll().filter(el => el.data.type === 'product');
+  eleventyConfig.addCollection('categories', function(collection) {
+    preprocessItems(collection);
+
+    return collection.getAllSorted()
+      .filter(el => el.data.category)
+      .sort((a, b) => a.data.order - b.data.order);
   });
 
   eleventyConfig.addCollection('popular', function(collection) {
-    return collection.getAll().filter(el => el.data.popular);
+    return collection.getAllSorted().filter(el => el.data.popular);
   });
 
   return {

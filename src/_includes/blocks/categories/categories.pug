@@ -1,0 +1,8 @@
+mixin categories
+  div.categories: div.categories__row
+    each item in collections.categories
+      div.categories__item
+        if (item.data.category === category)
+          h1 #{ item.data.title }
+        else
+          a(href=item.url) #{ item.data.title }

@@ -5,5 +5,8 @@ block content
   +hero
 
   main
-    div.h-margin.container
-      +products(collections.products)
+    div.container
+      +categories
+
+      if (collections[category])
+        +products(collections[category])

@@ -1,11 +1,11 @@
 ---
 layout: products.pug
 
-title: Все товары
-description: Все товары
+title: Колбасы
+description: Колбасы
 
-category: products
-order: 1
+category: sausages
+order: 4
 
 hero: |
   ## Наша <br> продукция

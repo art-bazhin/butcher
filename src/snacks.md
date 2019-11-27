@@ -1,11 +1,11 @@
 ---
 layout: products.pug
 
-title: Все товары
-description: Все товары
+title: Закуски
+description: Закуски
 
-category: products
-order: 1
+category: snacks
+order: 2
 
 hero: |
   ## Наша <br> продукция
