@@ -1,0 +1,9 @@
+extends base.pug
+
+block content
+  +header(true)
+  +hero
+
+  main
+    div.h-margin.container
+      +products(collections.products)

@@ -2,9 +2,11 @@ extends base.pug
 
 block content
   +header(true)
-
   +hero
 
-  div.container
-    section.text-right
-      | !{ content }
+  main
+    div.container
+      +section('right')
+        | !{ content }
+
+    +popular

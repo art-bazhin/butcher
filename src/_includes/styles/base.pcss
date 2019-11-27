@@ -26,10 +26,22 @@ picture {
   display: inline-block;
 }
 
-section, nav, header, footer {
+section, nav, header, footer, main {
   display: block;
 }
 
 svg {
   fill: $c-font;
+}
+
+main {
+  padding-bottom: 32px;
+
+  @media (--md) {
+    padding-bottom: 48px;
+  }
+
+  @media (--lg) {
+    padding-bottom: 64px;
+  }
 }

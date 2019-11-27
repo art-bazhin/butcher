@@ -1,0 +1,9 @@
+mixin product-card(product)
+  div.product-card
+    a(href=product.url).product-card__link
+      div.product-card__photo
+        +mask
+          img(src=(config.productsImgFolder + product.data.photo), alt=product.data.title)
+      h3.product-card__title
+        span #{ product.data.title }
+    p.product-card__price #{ functions.formatNumber(product.data.price) }-

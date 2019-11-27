@@ -1,0 +1,4 @@
+mixin products(collection)
+  div.products.row
+    each product in collection
+      div.products__item: +product-card(product)

@@ -1,8 +1,21 @@
 include ../mixins/md
+include ../mixins/picture
 
 include ../blocks/hero/hero
 include ../blocks/header/header
 include ../blocks/footer/footer
+include ../blocks/mask/mask
+include ../blocks/product/product
+include ../blocks/products/products
+include ../blocks/product-card/product-card
+include ../blocks/section/section
+include ../blocks/logo/logo
+include ../blocks/menu/menu
+include ../blocks/popular/popular
+
+include ../svg/phone
+include ../svg/vk
+include ../svg/instagram
 
 <!DOCTYPE html>
 html(lang="en")
@@ -13,8 +26,10 @@ html(lang="en")
     link(rel="stylesheet", href="/style.css")
     title #{ title ? title + ' | ' : '' }#{ site.title }
   body
-    
+    include ../svg/dish-mask
+
     block content
 
     +footer
+
     script(src="/script.js")

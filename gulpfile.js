@@ -19,6 +19,7 @@ const resize = require('gulp-image-resize');
 const SRC = './src/_includes/';
 const IMG = './src/img/';
 const DIST = './dist/';
+const PRODUCT_IMG_WIDTH = 450;
 
 const BABEL_CONFIG = {
   presets: [
@@ -76,8 +77,8 @@ const assets = function() {
 const productsImg1x = function() {
   return src(IMG + 'products/**/*')
     .pipe(resize({
-      width : 558,
-      height : 558,
+      width : PRODUCT_IMG_WIDTH,
+      height : PRODUCT_IMG_WIDTH,
       quality: 0.7,
       format: 'jpg'
     }))
@@ -87,8 +88,8 @@ const productsImg1x = function() {
 const productsImg2x = function() {
   return src(IMG + 'products/**/*')
     .pipe(resize({
-      width : 1116,
-      height : 1116,
+      width : PRODUCT_IMG_WIDTH * 2,
+      height : PRODUCT_IMG_WIDTH * 2,
       quality: 0.6,
       format: 'jpg'
     }))

@@ -1,6 +1,7 @@
 .container {
   display: block;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: $g-gutter;
   padding-right: $g-gutter;
   width: 100%;
@@ -41,4 +42,8 @@
 
 @mixin col-width($w) {
   min-width: calc(100 * $w)%;
+}
+
+@mixin col-offset($w) {
+  margin-left: calc(100 * $w)%;
 }

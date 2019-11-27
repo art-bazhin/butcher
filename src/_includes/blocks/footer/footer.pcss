@@ -2,17 +2,11 @@
   background-color: $c-bg--secondary;
   padding-top: 24px;
   padding-bottom: 32px;
-  margin-top: 32px;
   text-align: center;
 
   @media (--md) {
     padding-top: 32px;
     padding-bottom: 40px;
-    margin-top: 48px;
-  }
-
-  @media (--lg) {
-    margin-top: 64px;
   }
 }
 
@@ -38,8 +32,6 @@
 }
 
 .footer__subtitle {
-  margin-bottom: 8px;
-
   &--social {
     display: none;
 
@@ -52,6 +44,15 @@
 .footer__menu-item {
   display: block;
   padding: 4px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media(--md) {
+    display: table;
+    margin: auto;
+  }
 }
 
 .footer__social-links {

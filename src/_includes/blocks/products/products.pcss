@@ -1,0 +1,16 @@
+.products {
+  margin-bottom: -32px;
+}
+
+.products__item {
+  @include col;
+  margin-bottom: 32px;
+
+  @media(--md) {
+    @include col-width(1/2);
+  }
+
+  @media(--lg) {
+    @include col-width(1/4);
+  }
+}

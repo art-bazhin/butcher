@@ -1,3 +1,15 @@
+@mixin add-heading-margin() {
+  margin-top: 32px;
+
+  @media(--md) {
+    margin-top: 48px;
+  }
+
+  @media(--lg) {
+    margin-top: 64px;
+  }
+}
+
 body {
   font-family: $t-font;
   font-weight: 200;
@@ -10,53 +22,43 @@ p + p {
   margin-top: 20px;
 }
 
-h3, h4 {
-  margin-top: 32px;
-}
-
 h1, h2 {
   font-weight: 900;
   font-size: 24px;
   line-height: 1.2;
   letter-spacing: 3px;
-  margin-bottom: 20px;
-  margin-top: 32px;
+  margin-bottom: 24px;
   text-transform: uppercase;
 
   @media(--md) {
     font-size: 48px;
-    margin-top: 48px;
-    margin-bottom: 24px;
   }
 
   @media(--lg) {
-    margin-top: 64px;
     margin-bottom: 32px;
   }
+
+  @include add-heading-margin();
 }
 
 h3, h4 {
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   text-transform: uppercase;
+  margin-top: 24px;
 
   @media(--md) {
     font-size: 20px;
-    margin-bottom: 20px;
   }
 }
-
-/* @media (--sm) {
-  h1, h2, h3, h4, h5, h6 {
-    br {
-      display: none;
-    }
-  }
-} */
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.h-margin {
+  @include add-heading-margin();
 }

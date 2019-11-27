@@ -1,0 +1,24 @@
+.section {
+  @include col;
+  text-align: left;
+
+  @media(--lg) {
+    @include col-width(10/12);
+  }
+
+  @media(--xl) {
+    @include col-width(9/12);
+  }
+
+  &--right {
+    text-align: right;
+
+    @media(--lg) {
+      @include col-offset(2/12);
+    }
+
+    @media(--xl) {
+      @include col-offset(3/12);
+    }
+  }
+}
