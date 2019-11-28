@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "gulp & npx @11ty/eleventy && node zip.js",
+    "build": "gulp && npx @11ty/eleventy && gulp zip",
     "dev": "gulp dev",
     "serve": "npx @11ty/eleventy --serve"
   },

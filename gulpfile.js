@@ -1,5 +1,7 @@
 const { src, dest, parallel, series, watch } = require('gulp');
+
 const rimraf = require('rimraf');
+const zipFolder = require('zip-a-folder');
 
 const postcss = require('gulp-postcss');
 const rename = require('gulp-rename');
@@ -17,6 +19,7 @@ const cssnano = require('cssnano');
 const resize = require('gulp-image-resize');
 
 const SRC = './src/_includes/';
+const ROOT = './src/_root/**/*'
 const IMG = './src/img/';
 const DIST = './dist/';
 const PRODUCT_IMG_WIDTH = 450;
@@ -67,11 +70,26 @@ const js = function() {
     .pipe(dest(DIST))
 }
 
+const root = function() {
+  return src(ROOT)
+    .pipe(copy(DIST, {
+      prefix: 2
+    }));
+}
+
 const assets = function() {
   return src(SRC + 'assets/**/*')
     .pipe(copy(DIST, {
       prefix: 2
     }));
+}
+
+const zip = function(cb) {
+  zipFolder.zipFolder(DIST, './dist.zip', function(err) {
+    if(err) {
+      console.log('Failed to zip!', err);
+    } else cb();
+  });
 }
 
 const productsImg1x = function() {
@@ -99,8 +117,8 @@ const productsImg2x = function() {
 
 const productsImg = parallel(productsImg1x, productsImg2x);
 
-const build = series(clean, parallel(css, js, assets, productsImg));
-const buildDev = series(clean, parallel(css, jsDev, assets, productsImg));
+const build = series(clean, parallel(css, js, assets, productsImg, root));
+const buildDev = series(clean, parallel(css, jsDev, assets, productsImg, root));
 
 const dev = function() {
   buildDev();
@@ -112,4 +130,5 @@ const dev = function() {
 
 exports.default = build;
 exports.dev = dev;
+exports.zip = zip;
 

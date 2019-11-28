@@ -3,19 +3,13 @@ const translit = require('cyrillic-to-translit-js');
 
 const SPACE = '-';
 
-let processed = false;
-
 function preprocessItems(collection) {
-  if (processed) return;
-
   collection.items.forEach(item => {
     item.outputPath = translit().transform(item.outputPath, SPACE);
     item.url = translit().transform(item.url, SPACE);
     item.fileSlug = translit().transform(item.fileSlug, SPACE);
     item.filePathStem = translit().transform(item.filePathStem, SPACE);
   });
-
-  processed = true;
 }
 
 module.exports = function(eleventyConfig) {
