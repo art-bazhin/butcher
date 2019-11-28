@@ -3,6 +3,4 @@ mixin picture(path, alt)
     alt = alt || '';
     path2x = path.split('.').join(config.retinaSuffix + '.');
 
-  picture
-    source(srcset=`${path}, ${path2x} 1.5x` media="(min-width: 0)")
-    img(src=path alt=alt)&attributes(attributes)
+  img(src=path srcset=`${path}, ${path2x} 1.5x` alt=alt)&attributes(attributes)
