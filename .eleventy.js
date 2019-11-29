@@ -1,5 +1,7 @@
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
 const translit = require('cyrillic-to-translit-js');
+const Typograf = require('typograf');
+const typograf = new Typograf({locale: ['ru']});
 
 const SPACE = '-';
 
@@ -16,6 +18,10 @@ module.exports = function(eleventyConfig) {
   const cacheBusterOptions = {
     outputDirectory: 'dist'
   };
+
+  eleventyConfig.addTransform('typograf', function(input) {
+    return typograf.execute(input);
+  })
 
   eleventyConfig.addPlugin(cacheBuster(cacheBusterOptions));
 

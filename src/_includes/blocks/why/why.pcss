@@ -1,0 +1,77 @@
+.why {
+  margin-bottom: -32px;
+}
+
+.why__heading {
+  @media(--md) {
+    text-align: right;
+  }
+}
+
+.why__item {
+  @include col;
+  margin-bottom: 32px;
+
+  @media(--sm) {
+    @include col-width(1/2);
+  }
+
+  @media(--lg) {
+    @include col-width(1/4);
+  }
+}
+
+.why__img {
+  height: 185px;
+  background-repeat: no-repeat;
+  background-size: auto 185px;
+  background-position: center;
+
+  &--cutlery {
+    background-image: url("/assets/img/cutlery.png");
+
+    @media(--retina) {
+      background-image: url("/assets/img/cutlery@2x.png");
+    }
+  }
+
+  &--meat {
+    background-image: url("/assets/img/meat.png");
+
+    @media(--retina) {
+      background-image: url("/assets/img/meat@2x.png");
+    }
+
+    @media(--xs) {
+      height: 105px;
+    }
+  }
+
+  &--spices {
+    background-image: url("/assets/img/spices.png");
+
+    @media(--retina) {
+      background-image: url("/assets/img/spices@2x.png");
+    }
+  }
+
+  &--fire {
+    background-image: url("/assets/img/fire.png");
+
+    @media(--retina) {
+      background-image: url("/assets/img/fire@2x.png");
+    }
+
+    @media(--xs) {
+      height: 155px;
+    }
+  }
+}
+
+.why__text {
+  text-align: center;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}

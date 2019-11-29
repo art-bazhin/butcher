@@ -1,6 +1,6 @@
 mixin section(align)
   - if (!align) align = 'left'
 
-  div.container: div.row
+  div.row
     div(class=`section--${align}`).section
       block

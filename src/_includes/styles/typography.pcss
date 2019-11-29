@@ -1,5 +1,5 @@
 @mixin heading-margin() {
-  margin-top: 32px;
+  margin-top: 40px;
 
   @media(--md) {
     margin-top: 48px;
@@ -7,6 +7,10 @@
 
   @media(--lg) {
     margin-top: 64px;
+  }
+
+  @media(--xl) {
+    margin-top: 72px;
   }
 }
 
@@ -27,16 +31,18 @@ p + p {
   margin-top: 20px;
 }
 
-h1, h2 {
+h1, h2, .h1 {
   font-weight: 900;
   font-size: 24px;
   line-height: 1.2;
   letter-spacing: 3px;
   margin-bottom: 24px;
   text-transform: uppercase;
+  text-align: center;
 
   @media(--md) {
     font-size: 40px;
+    text-align: left;
   }
 
   @media(--lg) {
@@ -47,10 +53,14 @@ h1, h2 {
     margin-bottom: 32px;
   }
 
+  @media(--xl) {
+    margin-bottom: 36px;
+  }
+
   @include heading-margin();
 }
 
-h3, h4 {
+h3, h4, .h2 {
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;

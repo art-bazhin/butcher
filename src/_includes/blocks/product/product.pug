@@ -1,8 +1,8 @@
 mixin product
-  div.container.product: div.row
+  section.product: div.row
     div.product__img-container
       +mask
-        +picture(config.productsImgFolder + photo, title)
+        +img(config.productsImgFolder + photo, title)
 
     div.product__description-container
       h1 !{ functions.formatTitle(title) }

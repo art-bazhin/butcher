@@ -3,8 +3,12 @@
 }
 
 .product-card__photo {
-  max-width: 200px;
+  max-width: 180px;
   margin: auto;
+
+  @media(--xl) {
+    max-width: 200px;
+  }
 }
 
 .product-card__link {

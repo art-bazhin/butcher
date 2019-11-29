@@ -1,0 +1,6 @@
+mixin img(path, alt)
+  -
+    alt = alt || '';
+    path2x = path.split('.').join(config.retinaSuffix + '.');
+
+  img(src=path srcset=`${path}, ${path2x} 1.5x` alt=alt)&attributes(attributes)

@@ -11,7 +11,13 @@
   }
 
   &--right {
-    text-align: right;
+    @media(--md) {
+      text-align: right;
+
+      h1, h2 {
+        text-align: right;
+      }
+    }
 
     @media(--lg) {
       @include col-offset(2/12);
