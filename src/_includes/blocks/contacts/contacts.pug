@@ -1,0 +1,10 @@
+mixin contacts
+  section.contacts
+    div.row
+      each contact in contacts
+        div.contacts__item
+          h3.contacts__item-title #{ contact.title }
+          p.contacts__item-description #{ contact.description }
+          a(href=`tel:${contact.phone}`).contacts__item-phone
+            +phone
+            span #{ functions.phone(contact.phone) }

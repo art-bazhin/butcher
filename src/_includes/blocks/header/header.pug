@@ -9,7 +9,7 @@ mixin header(isHero)
       div.header__phone-container
         a(href=("tel:" + site.phone)).header__button.header__button--phone
           +phone.header__phone-icon
-          span.header__phone-text #{ functions.phone(site.phone).formatNational() }
+          span.header__phone-text #{ functions.phone(site.phone) }
         p.header__phone-description #{ site.phoneDescription }
 
     div.header__menu-container: +menu

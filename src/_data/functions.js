@@ -24,5 +24,5 @@ module.exports = {
   markdown:  text => markdown.render(text),
   formatNumber: num => formatter.format(num),
   formatTitle,
-  phone: phoneNumber.parsePhoneNumberFromString
+  phone: num => phoneNumber.parsePhoneNumberFromString(num, 'RU').formatNational()
 };
