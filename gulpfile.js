@@ -22,14 +22,17 @@ const SRC = './src/_includes/';
 const ROOT = './src/_root/**/*'
 const IMG = './src/img/';
 const DIST = './dist/';
+
 const PRODUCT_IMG_WIDTH = 450;
+const GALLERY_IMG_WIDTH = 2292;
 
 const BABEL_CONFIG = {
   presets: [
-    ['@babel/env', {
-        useBuiltIns: 'entry',
-        corejs: 3
-      }
+    ['@babel/env', 
+      // {
+      //   useBuiltIns: 'usage',
+      //   corejs: 3
+      // }
     ]
   ]
 };
@@ -92,6 +95,16 @@ const zip = function(cb) {
   });
 }
 
+const galleryImg = function() {
+  return src(IMG + 'gallery/**/*')
+    .pipe(resize({
+      width : GALLERY_IMG_WIDTH,
+      quality: 0.4,
+      format: 'jpg'
+    }))
+    .pipe(dest(DIST + 'img/gallery/'));
+}
+
 const productsImg1x = function() {
   return src(IMG + 'products/**/*')
     .pipe(resize({
@@ -117,8 +130,8 @@ const productsImg2x = function() {
 
 const productsImg = parallel(productsImg1x, productsImg2x);
 
-const build = series(clean, parallel(css, js, assets, productsImg, root));
-const buildDev = series(clean, parallel(css, jsDev, assets, productsImg, root));
+const build = series(clean, parallel(css, js, assets, productsImg, galleryImg, root));
+const buildDev = series(clean, parallel(css, jsDev, assets, productsImg, galleryImg, root));
 
 const dev = function() {
   buildDev();

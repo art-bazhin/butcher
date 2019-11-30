@@ -4,8 +4,8 @@
   "phone": "+78001234567",
   "phoneDescription": "Каждый день с 8:00 до 23:00",
 
-  "vk": "https://vk.com/",
-  "instagram": "https://instagram.com/",
+  "vk": "https://vk.com/public188909419",
+  "instagram": "https://www.instagram.com/recepty_myasnika/",
 
   "logo": "/assets/img/butcher-logo.png",
 
@@ -13,10 +13,6 @@
     {
       "text": "Главная",
       "href": "/"
-    },
-    {
-      "text": "О нас",
-      "href": "/about"
     },
     {
       "text": "Продукция",

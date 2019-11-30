@@ -28,15 +28,18 @@
 }
 
 .categories__row {
-  @include heading-margin;
-
   text-align: center;
   text-transform: uppercase;
+  padding-top: 40px;
 
   @media(--md) {
     @include row;
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+
+  @media(--lg) {
+    padding-top: 64px;
   }
 }
 

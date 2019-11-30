@@ -1,0 +1,136 @@
+.gallery__container {
+  width: 100%;
+  height: calc(100 * 9 / 16)vw;
+  position: relative;
+
+  @media(--sm) {
+    height: 253px;
+  }
+
+  @media(--md) {
+    height: 401px;
+  }
+
+  @media(--lg) {
+    height: 523px;
+  }
+
+  @media(--xl) {
+    height: 644px;
+  }
+}
+
+.gallery__frame {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.gallery__item {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.42s;
+
+  &--active {
+    opacity: 1;
+  }
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.gallery__button {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background $t-duration;
+
+  &:before {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-left: 4px solid $c-font;
+    border-bottom: 4px solid $c-font;
+    transform: rotate(45deg);
+    left: 16px;
+    top: 14px;
+  }
+
+  &--right {
+    left: auto;
+    right: 0;
+
+    &:before {
+      left: auto;
+      right: 16px;
+      transform: rotate(-135deg);
+    }
+  }
+
+  &:hover, &:focus {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  &:focus {
+    @media(--md) {
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  &:hover {
+    @media(--md) {
+      background: rgba(0, 0, 0, 0.5);
+
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.gallery__dots {
+  margin-top: 6px;
+  margin-bottom: -6px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery__dot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid $c-font;
+  margin: 6px;
+  border-radius: 50%;
+  transition: background $t-duration;
+
+  @media(--md) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &--active, &--active:focus, &--active:hover {
+    background: $c-font;
+  }
+}

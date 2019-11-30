@@ -1,0 +1,16 @@
+mixin gallery
+  section#gallery.gallery
+    h1 Фото <br> продукции
+
+    div.gallery__container
+      div(style=`background-image: url("${gallery[0]}")`)#gallery-frame.gallery__frame
+        - for (let i = gallery.length - 1; i >= 0; i--)
+          div(style=`background-image: url("${gallery[i]}")` data-photo=gallery[i] id=`gallery-item-${i}` class=(!i ? 'gallery__item--active' : '')).gallery__item
+            img(alt="Фото продукции" src=gallery[i]).gallery__img
+      
+      button(type="button")#gallery-button-left.gallery__button.gallery__button--left
+      button(type="button")#gallery-button-right.gallery__button.gallery__button--right
+
+    div.gallery__dots
+      - for (let i = 0; i < gallery.length; i++)
+        button(type="button" data-index=i id=`gallery-dot-${i}` class=(!i ? 'gallery__dot--active' : '')).gallery__dot
