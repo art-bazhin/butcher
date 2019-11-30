@@ -1,12 +1,21 @@
 .menu {
   margin-top: 12px;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  background: $c-bg--secondary;
+  padding-bottom: 16px;
+  left: 0;
 
   @media(--md) {
+    background: none;
+    position: relative;
     margin-top: 32px;
     display: flex;
     justify-content: space-between;
     border-top: 2px solid $c-font;
     border-bottom: 2px solid $c-font;
+    padding-bottom: 0;
   }
 }
 
