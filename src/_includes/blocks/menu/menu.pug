@@ -2,4 +2,7 @@ mixin menu
   div.container
     nav.menu
       each item in site.menu
-        a(href=item.href).menu__item #{ item.text }
+        if (page.url.split('/').join('') === item.href.split('/').join(''))
+          span.menu__item #{ item.text }
+        else
+          a(href=item.href).menu__item #{ item.text }

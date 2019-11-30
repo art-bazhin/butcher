@@ -5,7 +5,7 @@ title: Деликатесы
 description: Деликатесы
 
 category: delicacies
-order: 3
+order: 2
 
 hero: |
   ## Наша <br> продукция

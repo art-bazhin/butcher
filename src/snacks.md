@@ -5,7 +5,7 @@ title: Закуски
 description: Закуски
 
 category: snacks
-order: 2
+order: 3
 
 hero: |
   ## Наша <br> продукция
