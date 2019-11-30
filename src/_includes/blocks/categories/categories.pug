@@ -3,6 +3,6 @@ mixin categories
     each item in collections.categories
       div.categories__item
         if (item.data.category === category)
-          h1 #{ item.data.title }
+          span #{ item.data.title }
         else
           a(href=(item.url + '#categories')) #{ item.data.title }
