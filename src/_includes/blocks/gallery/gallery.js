@@ -9,16 +9,12 @@
   const dots = gallery.querySelectorAll('.gallery__dot');
 
   const TRANSITION_DURATION = 420;
-  const TRANSITION_INTERVAL = 4000;
+  const TRANSITION_INTERVAL = 3000;
 
-  let interval = null;
+  let interval = setInterval(() => choose(currentIndex + 1), TRANSITION_INTERVAL);
   let isAnimated = false;
   let currentIndex = 0;
   let length = frame.children.length;
-
-  getItem(0).firstChild.addEventListener('load', () => {
-    interval = setInterval(() => choose(currentIndex + 1), TRANSITION_INTERVAL);
-  });
 
   function getItem(i) {
     return document.getElementById('gallery-item-' + i);
