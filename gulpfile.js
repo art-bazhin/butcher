@@ -17,6 +17,7 @@ const precss = require('precss');
 const cssnano = require('cssnano');
 
 const resize = require('gulp-image-resize');
+const sitemap = require('gulp-sitemap');
 
 const SRC = './src/_includes/';
 const ROOT = './src/_root/**/*'
@@ -87,14 +88,6 @@ const assets = function() {
     }));
 }
 
-const zip = function(cb) {
-  zipFolder.zipFolder(DIST, './dist.zip', function(err) {
-    if(err) {
-      console.log('Failed to zip!', err);
-    } else cb();
-  });
-}
-
 const galleryImg = function() {
   return src(IMG + 'gallery/**/*')
     .pipe(resize({
@@ -141,7 +134,27 @@ const dev = function() {
   watch([SRC + '**/*.pcss', SRC + '**/*.css'], css);
 };
 
+const zip = function(cb) {
+  zipFolder.zipFolder(DIST, './dist.zip', function(err) {
+    if(err) {
+      console.log('Failed to zip!', err);
+    } else cb();
+  });
+}
+
+const generateSitemap = function() {
+  return src(DIST + '**/*.html', {
+    read: false
+  })
+    .pipe(sitemap({
+      siteUrl: 'http:/ecobutcher.ru'
+    }))
+    .pipe(dest(DIST));
+}
+
+const postprocess = series(generateSitemap, zip);
+
 exports.default = build;
 exports.dev = dev;
-exports.zip = zip;
+exports.postprocess = postprocess;
 

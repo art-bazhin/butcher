@@ -1,0 +1,3 @@
+Sitemap: http://ecobutcher.ru/sitemap.xml
+Disallow: /yandex_82b935a9938753da.html
+Disallow: /assets

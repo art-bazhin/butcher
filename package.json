@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "gulp && npx @11ty/eleventy && gulp zip",
+    "build": "gulp && npx @11ty/eleventy && gulp postprocess",
     "dev": "gulp dev",
     "serve": "npx @11ty/eleventy --serve"
   },
@@ -26,6 +26,7 @@
     "gulp-image-resize": "^0.13.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
+    "gulp-sitemap": "^7.6.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "intl": "^1.2.5",
