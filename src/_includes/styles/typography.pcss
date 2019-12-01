@@ -21,13 +21,14 @@
   line-height: 1.35;
   font-style: normal;
   letter-spacing: 0px;
+  color: $c-font;
 }
 
-body {
+body, textarea, input {
   @include base-font;
 }
 
-p + p {
+p + p, p + ul, p + ol, ul + p, ol + p {
   margin-top: 20px;
 }
 
@@ -72,6 +73,14 @@ h3, h4, .h2 {
   @media(--md) {
     font-size: 20px;
   }
+}
+
+li + li {
+  margin-top: 6px;
+}
+
+ul li:before {
+  content: "- ";
 }
 
 a {

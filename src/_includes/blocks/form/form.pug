@@ -1,0 +1,40 @@
+mixin form
+  form#form.form
+    div.row: div.form__col
+      div.form__fields
+        input(type="text")#spam-check.form__spam-check
+
+        label#form-field-name.form__field
+          span.form__label Ваше имя
+          input(type="text" name="name" placeholder="Введите имя").form__input
+          div.form__field-error Введите имя
+
+        label#form-field-phone.form__field
+          span.form__label Телефон
+          input(type="tel" name="phone" placeholder="Введите телефон").form__input
+          div.form__field-error Введите телефон
+
+        label#form-field-message.form__field
+          span.form__label Текст сообщения
+          textarea(name="message" placeholder="Введите сообщение" style="resize: none" rows=5).form__input
+          div.form__field-error Введите собщение
+
+        label#form-field-checkbox.form__field
+          div.form__checkbox-row
+            div
+              input(type="checkbox").visually-hidden
+              div
+
+            span.form__label Нажимая на кнопку ОТПРАВИТЬ, я даю согласие на обработку персональных данных
+          div.form__field-error Подтвердите согласие
+
+        div.form__submit-container
+          button.form__submit
+            span Отправить
+            +loader
+
+        div.form__network-error Ошибка соединения. Попробуйте повторить запрос позже.
+
+      div.form__success-message.h2 Заявка успешно отправлена. Мы свяжемся с Вами в ближайшее время.
+
+        

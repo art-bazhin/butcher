@@ -9,3 +9,18 @@
 .text-right {
   text-align: right;
 }
+
+@mixin button {
+  @include base-font;
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid $c-font;
+  transition: background-color $t-duration, color $t-duration;
+
+  @media(--md) {
+    &:hover {
+      background: $c-font;
+      color: $c-bg;
+    }
+  }
+}
