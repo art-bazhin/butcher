@@ -48,6 +48,7 @@ html(lang="ru")
     meta(name="msapplication-TileColor" content="#ffffff")
     meta(name="msapplication-TileImage" content="/ms-icon-144x144.png")
     meta(name="theme-color" content="#ffffff")
+    meta(name="description" content=(description || site.description))
     title #{ title ? title + ' | ' : '' }#{ site.title }
   body
     include ../svg/dish-mask
