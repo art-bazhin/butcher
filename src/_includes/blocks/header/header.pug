@@ -14,4 +14,5 @@ mixin header(isHero)
 
     div.header__menu-container: +menu
 
-  h1.visually-hidden #{ title || site.title }
+  if (isHero)
+    h1.visually-hidden #{ title || site.title }
