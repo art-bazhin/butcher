@@ -14,6 +14,11 @@ mixin form
           input(type="tel" name="phone" placeholder="Введите телефон").form__input
           div.form__field-error Введите телефон
 
+        label#form-field-email.form__field
+          span.form__label E-mail
+          input(type="email" name="email" placeholder="Введите e-mail" novalidate).form__input
+          div.form__field-error Введите корректный e-mail
+
         label#form-field-message.form__field
           span.form__label Текст сообщения
           textarea(name="message" placeholder="Введите сообщение" style="resize: none" rows=5).form__input

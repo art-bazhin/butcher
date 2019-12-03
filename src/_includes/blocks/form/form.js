@@ -5,6 +5,8 @@
 
   let isPending = false;
 
+  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
   const spam = document.getElementById('spam-check');
 
   const nameField = document.getElementById('form-field-name');
@@ -12,6 +14,9 @@
 
   const phoneField = document.getElementById('form-field-phone');
   const phoneInput = phoneField.querySelector('input');
+
+  const emailField = document.getElementById('form-field-email');
+  const emailInput = emailField.querySelector('input');
 
   const messageField = document.getElementById('form-field-message');
   const messageInput = messageField.querySelector('textarea');
@@ -46,6 +51,10 @@
     return validateField(phoneField, () => checkNotEmpty(phoneInput.value));
   }
 
+  function validateEmail() {
+    return validateField(emailField, () => checkNotEmpty(emailInput.value) && emailRegex.test(emailInput.value));
+  }
+
   function validateCheckbox() {
     return validateField(checkboxField, () => checkboxInput.checked);
   }
@@ -55,6 +64,7 @@
 
     result = validateName() && result;
     result = validatePhone() && result;
+    result = validateEmail() && result;
     result = validateMessage() && result;
     result = validateCheckbox() && result;
 
@@ -62,6 +72,7 @@
   }
 
   nameInput.addEventListener('input', () => validateName());
+  emailInput.addEventListener('input', () => validateEmail());
   messageInput.addEventListener('input', () => validateMessage());
   checkboxInput.addEventListener('input', () => validateCheckbox());
 
@@ -72,12 +83,13 @@
 
   function send() {
     const data = {
-      name: nameInput.value,
-      phone: phoneInput.value,
-      message: messageInput.value
+      name: nameInput.value.trim(),
+      phone: phoneInput.value.trim(),
+      email: emailInput.value.trim(),
+      message: messageInput.value.trim()
     }
 
-    ajax('POST', 'https://formcarry.com/s/5RR14hr9hBQ',
+    ajax('POST', 'https://formcarry.com/s/SrTJXAXcl__',
       data,
       () => form.classList.add('form--success'),
       () => form.classList.add('form--error')
