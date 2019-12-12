@@ -10,7 +10,9 @@ mixin header(isHero)
         a(href=("tel:" + site.phone)).header__button.header__button--phone
           +phone.header__phone-icon
           span.header__phone-text #{ functions.phone(site.phone) }
-        p.header__phone-description #{ site.phoneDescription }
+        //- p.header__phone-description #{ site.phoneDescription }
+        p.header__email-container
+           a(href=("mailto:" + site.email)).header__email #{ site.email }
 
     div.header__menu-container: +menu
 

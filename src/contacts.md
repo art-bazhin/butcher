@@ -17,6 +17,9 @@ contacts:
     description: Санкт-Петербург, ул. Планерная, д. 49
     phone: '+78123071141'
 
+  - title: E-mail
+    email: zakaz@ecobutcher.ru
+
 hero: |
   ## Наши <br> контакты
 

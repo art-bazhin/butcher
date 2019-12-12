@@ -6,4 +6,4 @@ mixin product-card(product)
           img(src=(config.productsImgFolder + product.data.photo), alt=product.data.title)
       h3.product-card__title
         span !{ functions.formatTitle(product.data.title) }
-    p.product-card__price #{ functions.formatNumber(product.data.price) }-
+    //- p.product-card__price #{ functions.formatNumber(product.data.price) }-
