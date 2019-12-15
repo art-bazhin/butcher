@@ -1,3 +1,4 @@
+User-agent: *
 Sitemap: http://ecobutcher.ru/sitemap.xml
 Disallow: /yandex_4a1ba4f438ee9c1a.html
 Disallow: /assets
